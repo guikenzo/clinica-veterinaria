@@ -19,6 +19,9 @@ public class Dono {
         this.cpf = scanner.nextLine();
         
         System.out.println("\nEndereço do dono");
-        this.endereco = new Endereco(scanner);
+        System.out.print("Deseja informar o logradouro? (1 - Sim, 2 - Não): ");
+        boolean temLogradouro = scanner.nextInt() == 1;
+        scanner.nextLine();
+        this.endereco = Endereco.criarEndereco(scanner, temLogradouro);
     }
 }
