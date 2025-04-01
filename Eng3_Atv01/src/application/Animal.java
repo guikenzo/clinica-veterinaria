@@ -8,6 +8,44 @@ public class Animal {
     protected String raca;
     protected Dono dono;
 
+    protected Animal(Builder builder) {
+    	this.nomeAnimal = builder.nomeAnimal;
+    	this.idade = builder.idade;
+    	this.raca = builder.raca;
+    	this.dono = builder.dono;
+    }
+    
+    public static class Builder{
+    	protected String nomeAnimal;
+        protected int idade;
+        protected String raca;
+        protected Dono dono;
+        
+        public Builder nomeAnimal(String nomeAnimal) {
+        	this.nomeAnimal = nomeAnimal;
+        	return this;
+        }
+        
+        public Builder idade(int idade) {
+        	this.idade = idade;
+        	return this;
+        }
+        
+        public Builder raca(String raca) {
+        	this.raca = raca;
+        	return this;
+        }
+        
+        public Builder dono(Dono dono) {
+        	this.dono = dono;
+        	return this;
+        }
+        
+        public Animal build() {
+        	return new Animal(this);
+        }
+    }
+    
     public Animal(Scanner scanner, Dono dono) {
         System.out.print("Nome do animal: ");
         this.nomeAnimal = scanner.nextLine();
@@ -27,11 +65,31 @@ public class Animal {
             System.out.print("\nO animal é um (1) Cachorro ou (2) Gato? ");
             escolha = scanner.nextInt();
             scanner.nextLine();
-
+            
+            System.out.print("Nome do animal: ");
+            String nomeAnimal = scanner.nextLine();
+            
+            System.out.print("Idade do animal: ");
+            int idade = scanner.nextInt();
+            scanner.nextLine();
+            
+            System.out.print("Raça: ");
+            String raca = scanner.nextLine();
+            
             if (escolha == 1) {
-                return new Cachorro(scanner, dono);
+            	return new Cachorro.Builder()
+                        .nomeAnimal(nomeAnimal)
+                        .idade(idade)
+                        .raca(raca)
+                        .dono(dono)
+                        .build();
             } else if (escolha == 2) {
-                return new Gato(scanner, dono);
+            	return new Gato.Builder()
+                        .nomeAnimal(nomeAnimal)
+                        .idade(idade)
+                        .raca(raca)
+                        .dono(dono)
+                        .build();
             } else {
                 System.out.println("Opção inválida! Por favor, digite 1 para Cachorro ou 2 para Gato.");
             }
