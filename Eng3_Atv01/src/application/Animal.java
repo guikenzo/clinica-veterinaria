@@ -60,39 +60,32 @@ public class Animal {
     }
 
     public static Animal criarAnimal(Scanner scanner, Dono dono) {
-        int escolha;
         while (true) {
             System.out.print("\nO animal é um (1) Cachorro ou (2) Gato? ");
-            escolha = scanner.nextInt();
+            int escolha = scanner.nextInt();
             scanner.nextLine();
-            
+
             System.out.print("Nome do animal: ");
             String nomeAnimal = scanner.nextLine();
-            
+
             System.out.print("Idade do animal: ");
             int idade = scanner.nextInt();
             scanner.nextLine();
-            
+
             System.out.print("Raça: ");
             String raca = scanner.nextLine();
-            
+
+            String tipo;
             if (escolha == 1) {
-            	return new Cachorro.Builder()
-                        .nomeAnimal(nomeAnimal)
-                        .idade(idade)
-                        .raca(raca)
-                        .dono(dono)
-                        .build();
+                tipo = "cachorro";
             } else if (escolha == 2) {
-            	return new Gato.Builder()
-                        .nomeAnimal(nomeAnimal)
-                        .idade(idade)
-                        .raca(raca)
-                        .dono(dono)
-                        .build();
+                tipo = "gato";
             } else {
                 System.out.println("Opção inválida! Por favor, digite 1 para Cachorro ou 2 para Gato.");
+                continue;
             }
+
+            return AnimalFactory.criarAnimal(tipo, nomeAnimal, idade, raca, dono);
         }
     }
 }

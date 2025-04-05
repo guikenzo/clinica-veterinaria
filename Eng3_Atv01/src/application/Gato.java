@@ -7,6 +7,7 @@ public class Gato extends Animal {
 	
 	public static class Builder extends Animal.Builder {
 		public Builder() {}
+		
 		@Override
         public Builder nomeAnimal(String nomeAnimal) {
             super.nomeAnimal = nomeAnimal;
