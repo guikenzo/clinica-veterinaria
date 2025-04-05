@@ -33,7 +33,7 @@ public class Main {
                 System.out.print("\nO animal tem dono? (1 - Sim / 2 - Não): ");
 
                 while (!scanner.hasNextInt()) {
-                    System.out.println("Opção inválida! Digite 1 para Sim ou 2 para Não.");
+                    System.out.println("Opção inválida! Digite 1 tem Sim ou 2 para Não.");
                     scanner.next();
                 }
                 temDono = scanner.nextInt();
