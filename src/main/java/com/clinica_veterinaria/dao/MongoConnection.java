@@ -1,4 +1,4 @@
-package application.dao;
+package com.clinica_veterinaria.dao;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

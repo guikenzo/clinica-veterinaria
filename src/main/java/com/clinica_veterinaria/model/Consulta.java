@@ -16,7 +16,7 @@ public class Consulta implements Atendimento {
 
     @Override
     public void agendarConsulta() {
-        System.out.println("\nConsulta agendada para o animal " + animal.nomeAnimal + " com o veterinário " + veterinario + " na data " + data);
+        System.out.println("\nConsulta agendada para o animal " + animal.getNomeAnimal() + " com o veterinário " + veterinario + " na data " + data);
     }
 }
 

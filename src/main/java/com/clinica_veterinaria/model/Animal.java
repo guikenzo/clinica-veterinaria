@@ -1,91 +1,34 @@
 package com.clinica_veterinaria.model;
 
-import java.util.Scanner;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "animais")
 public class Animal {
-    protected String nomeAnimal;
-    protected int idade;
-    protected String raca;
-    protected Dono dono;
 
-    protected Animal(Builder builder) {
-    	this.nomeAnimal = builder.nomeAnimal;
-    	this.idade = builder.idade;
-    	this.raca = builder.raca;
-    	this.dono = builder.dono;
-    }
-    
-    public static class Builder{
-    	protected String nomeAnimal;
-        protected int idade;
-        protected String raca;
-        protected Dono dono;
-        
-        public Builder nomeAnimal(String nomeAnimal) {
-        	this.nomeAnimal = nomeAnimal;
-        	return this;
-        }
-        
-        public Builder idade(int idade) {
-        	this.idade = idade;
-        	return this;
-        }
-        
-        public Builder raca(String raca) {
-        	this.raca = raca;
-        	return this;
-        }
-        
-        public Builder dono(Dono dono) {
-        	this.dono = dono;
-        	return this;
-        }
-        
-        public Animal build() {
-        	return new Animal(this);
-        }
-    }
-    
-    public Animal(Scanner scanner, Dono dono) {
-        System.out.print("Nome do animal: ");
-        this.nomeAnimal = scanner.nextLine();
-        
-        System.out.print("Idade do animal: ");
-        this.idade = scanner.nextInt();
-        scanner.nextLine();
-        
-        System.out.print("Raça: ");
-        this.raca = scanner.nextLine();
-        this.dono = dono;
-    }
+    @Id
+    private String id;
 
-    public static Animal criarAnimal(Scanner scanner, Dono dono) {
-        while (true) {
-            System.out.print("\nO animal é um (1) Cachorro ou (2) Gato? ");
-            int escolha = scanner.nextInt();
-            scanner.nextLine();
+    private String nomeAnimal;
+    private int idade;
+    private String raca;
+    private String tipo; // cachorro ou gato
 
-            System.out.print("Nome do animal: ");
-            String nomeAnimal = scanner.nextLine();
+    // Construtor vazio (obrigatório para o MongoDB e Spring)
+    public Animal() {}
 
-            System.out.print("Idade do animal: ");
-            int idade = scanner.nextInt();
-            scanner.nextLine();
+    // Getters e Setters
+    public String getId() { return id; }
 
-            System.out.print("Raça: ");
-            String raca = scanner.nextLine();
+    public String getNomeAnimal() { return nomeAnimal; }
+    public void setNomeAnimal(String nomeAnimal) { this.nomeAnimal = nomeAnimal; }
 
-            String tipo;
-            if (escolha == 1) {
-                tipo = "cachorro";
-            } else if (escolha == 2) {
-                tipo = "gato";
-            } else {
-                System.out.println("Opção inválida! Por favor, digite 1 para Cachorro ou 2 para Gato.");
-                continue;
-            }
+    public int getIdade() { return idade; }
+    public void setIdade(int idade) { this.idade = idade; }
 
-            return AnimalFactory.criarAnimal(tipo, nomeAnimal, idade, raca, dono);
-        }
-    }
+    public String getRaca() { return raca; }
+    public void setRaca(String raca) { this.raca = raca; }
+
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 }
