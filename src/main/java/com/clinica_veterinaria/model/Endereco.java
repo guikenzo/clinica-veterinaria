@@ -9,7 +9,7 @@ public class Endereco {
 	protected String estado;
 	protected String pais;
 
-	public Endereco() {} // Necessário para o Spring Data
+	public Endereco() {}
 
 	// Getters e Setters
 	public String getCep() {

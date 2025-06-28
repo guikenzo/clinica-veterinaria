@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/animais")
-@CrossOrigin(origins = "*") // permite requisições de qualquer origem (útil para front local)
+@CrossOrigin(origins = "*")
 public class AnimalRestController {
 
     @Autowired
@@ -20,7 +20,6 @@ public class AnimalRestController {
         return animalRepository.save(animal);
     }
 
-    // ✅ Este é o novo endpoint que resolve o problema
     @GetMapping
     public List<Animal> listarAnimais() {
         return animalRepository.findAll();

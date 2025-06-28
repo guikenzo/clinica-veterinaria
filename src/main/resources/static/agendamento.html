@@ -3,36 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Veterinária Vida Animal</title>
+    <title>Clínica Veterinária Vida Animal - Agendamento</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="header-content container">
     <div class="header-logo">
-        <img src="images/logo.jpg" alt="">
+        <img src="images/logo.jpg" alt="Logo da Clínica">
     </div>
     <div class="header-a">
-        <a href="index.html" class="header-button">
-            Home
-        </a>
-        <a href="" class="header-button" target="_blank">
-            Quem Somos
-        </a>
-        <a href="" class="header-button">
-            Especialidades
-        </a>
-        <a href="agendamento.html" class="header-button" >
-            Agendamento
-        </a>
-        <a href="cadastro.html" class="header-button">
-            Cadastro
-        </a>
-        <a href="#feedbacks" class="header-button">
-            Feedbacks
-        </a>
+        <a href="index.html" class="header-button">Home</a>
+        <a href="cadastro.html" class="header-button">Cadastro</a>
+        <a href="agendamento.html" class="header-button">Agendamento</a>
     </div>
 </nav>
-<section class="agendamento">
+
+<section class="agendamento container">
     <h2>Agendamento de Consulta</h2>
     <form id="form-agendamento" class="form-agendamento">
         <label for="animal">Nome do animal:</label>
@@ -62,6 +48,50 @@
             <a href="#">Termos de Uso</a>
         </p>
     </div>
-    </footer>
-    </body>
+</footer>
+
+<script>
+    document.getElementById('form-agendamento').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const nomeAnimal = document.getElementById('animal').value;
+        const nomeVeterinario = document.getElementById('veterinario').value;
+        const data = document.getElementById('data').value;
+
+        const consulta = {
+            nomeAnimal,
+            nomeVeterinario,
+            data
+        };
+
+        try {
+            const resposta = await fetch('/api/consultas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(consulta)
+            });
+
+            const mensagem = document.getElementById('mensagem-sucesso');
+
+            if (resposta.ok) {
+                mensagem.style.display = 'block';
+                mensagem.textContent = 'Consulta agendada com sucesso!';
+                document.getElementById('form-agendamento').reset();
+            } else {
+                mensagem.style.display = 'block';
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao agendar consulta. Tente novamente.';
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            const mensagem = document.getElementById('mensagem-sucesso');
+            mensagem.style.display = 'block';
+            mensagem.style.color = 'red';
+            mensagem.textContent = 'Erro de conexão com o servidor.';
+        }
+    });
+</script>
+</body>
 </html>

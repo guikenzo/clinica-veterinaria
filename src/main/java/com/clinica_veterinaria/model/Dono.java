@@ -22,13 +22,11 @@ public class Dono {
     private String estado;
     private String pais;
 
-    // Lista com os IDs dos animais
     private List<String> animaisIds;
 
     public Dono() {}
 
     // Getters e setters
-
     public String getId() {
         return id;
     }
