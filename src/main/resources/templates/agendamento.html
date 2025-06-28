@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,11 @@
 </head>
 <body>
 <nav class="header-content container">
-    <div class="header-logo">
+    <div class="header-logo" th:href="@{/}">
         <img src="images/logo.jpg" alt="">
     </div>
     <div class="header-a">
-        <a href="" class="header-button">
+        <a href="index.html" class="header-button">
             Home
         </a>
         <a href="" class="header-button" target="_blank">
@@ -32,34 +32,36 @@
         </a>
     </div>
 </nav>
-<section class="foto-com-texto">
-    <img src="images/cachorro-site.png" alt="Cachorro feliz">
-    <div class="titulo">
-        <h2>Vet Plus</h2>
-        <p class="texto">A Veterinária Pet Plus é dedicada
-            ao cuidado completo da saúde e bem-estar do seu pet,
-            com atendimento humanizado e serviços de alta qualidade.
-        </p>
-        <p class="texto">Confie a saúde do seu pet à Veterinária Pet Plus,
-            onde a experiência, a tecnologia e o amor pelos animais se
-            unem para oferecer o melhor atendimento e cuidado que seu amigo merece.
-        </p>
-        <p class="subtexto">
-            Agende um horário conosco!
-        </p>
-        <a href="agendamento.html" class="botao">Agendamento</a>
-    </div>
+<section class="agendamento">
+    <h2>Agendamento de Consulta</h2>
+    <form id="form-agendamento" class="form-agendamento">
+        <label for="animal">Nome do animal:</label>
+        <input type="text" id="animal" name="animal" required>
+
+        <label for="veterinario">Nome do veterinário:</label>
+        <input type="text" id="veterinario" name="veterinario" required>
+
+        <label for="data">Data da consulta:</label>
+        <input type="date" id="data" name="data" required>
+
+        <button type="submit">Agendar</button>
+    </form>
+
+    <p id="mensagem-sucesso" style="display: none; color: green; font-weight: bold; margin-top: 15px;">
+        Consulta agendada com sucesso!
+    </p>
 </section>
+
 <footer class="site-footer">
     <div class="container-footer">
         <p>© 2025 Veterinária Pet Plus. Todos os direitos reservados.</p>
         <p>Contato: (11) 99675-1389 | Rua Afonso Pena, 452 - São Paulo, SP</p>
         <p>
-            <a class="footer-info" href="mailto:contato@petplus.com.br">contato@petplus.com.br</a> |
-            <a class="footer-info" href="#">Política de Privacidade</a> |
-            <a class="footer-info" href="#">Termos de Uso</a>
+            <a href="mailto:contato@petplus.com.br">contato@petplus.com.br</a> |
+            <a href="#">Política de Privacidade</a> |
+            <a href="#">Termos de Uso</a>
         </p>
     </div>
-</footer>
-</body>
+    </footer>
+    </body>
 </html>

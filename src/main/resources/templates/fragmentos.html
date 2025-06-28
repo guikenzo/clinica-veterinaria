@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="header-content container">
+
+
+<nav class="header-content container" th:fragment="cabecalho">
     <div class="header-logo">
         <img src="images/logo.jpg" alt="">
     </div>
     <div class="header-a">
-        <a href="index.html" class="header-button">
+        <a href="" class="header-button">
             Home
         </a>
         <a href="" class="header-button" target="_blank">
@@ -32,36 +34,16 @@
         </a>
     </div>
 </nav>
-<section class="agendamento">
-    <h2>Agendamento de Consulta</h2>
-    <form id="form-agendamento" class="form-agendamento">
-        <label for="animal">Nome do animal:</label>
-        <input type="text" id="animal" name="animal" required>
-
-        <label for="veterinario">Nome do veterinário:</label>
-        <input type="text" id="veterinario" name="veterinario" required>
-
-        <label for="data">Data da consulta:</label>
-        <input type="date" id="data" name="data" required>
-
-        <button type="submit">Agendar</button>
-    </form>
-
-    <p id="mensagem-sucesso" style="display: none; color: green; font-weight: bold; margin-top: 15px;">
-        Consulta agendada com sucesso!
-    </p>
-</section>
-
-<footer class="site-footer">
+<footer class="site-footer" th:fragment="footer">
     <div class="container-footer">
         <p>© 2025 Veterinária Pet Plus. Todos os direitos reservados.</p>
         <p>Contato: (11) 99675-1389 | Rua Afonso Pena, 452 - São Paulo, SP</p>
         <p>
-            <a href="mailto:contato@petplus.com.br">contato@petplus.com.br</a> |
-            <a href="#">Política de Privacidade</a> |
-            <a href="#">Termos de Uso</a>
+            <a class="footer-info" href="mailto:contato@petplus.com.br">contato@petplus.com.br</a> |
+            <a class="footer-info" href="#">Política de Privacidade</a> |
+            <a class="footer-info" href="#">Termos de Uso</a>
         </p>
     </div>
-    </footer>
-    </body>
+</footer>
+</body>
 </html>
