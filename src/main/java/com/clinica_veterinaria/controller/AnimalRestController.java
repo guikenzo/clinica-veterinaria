@@ -1,7 +1,7 @@
 package com.clinica_veterinaria.controller;
 
 import com.clinica_veterinaria.model.Animal;
-import com.clinica_veterinaria.repository.AnimalRepository;
+import com.clinica_veterinaria.facade.ClinicaFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +13,15 @@ import java.util.List;
 public class AnimalRestController {
 
     @Autowired
-    private AnimalRepository animalRepository;
+    private ClinicaFacade clinicaFacade;
 
     @PostMapping
     public Animal salvarAnimal(@RequestBody Animal animal) {
-        return animalRepository.save(animal);
+        return clinicaFacade.salvarAnimal(animal);
     }
 
     @GetMapping
-    public List<Animal> listarAnimais() {
-        return animalRepository.findAll();
+    public List<Animal> listarTodosAnimais() {
+        return clinicaFacade.listarAnimais();
     }
 }

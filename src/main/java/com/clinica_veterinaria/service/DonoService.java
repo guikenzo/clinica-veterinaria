@@ -1,7 +1,7 @@
 package com.clinica_veterinaria.service;
 
-import com.clinica_veterinaria.dao.DonoDAO;
 import com.clinica_veterinaria.model.Dono;
+import com.clinica_veterinaria.repository.DonoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class DonoService {
 
     @Autowired
-    private DonoDAO donoDAO;
+    private DonoRepository donoRepository;
 
-    public Dono salvarDono(Dono dono) {
-        return donoDAO.salvar(dono);
+    public Dono salvar(Dono dono) {
+        return donoRepository.save(dono);
     }
 }

@@ -1,7 +1,7 @@
 package com.clinica_veterinaria.controller;
 
 import com.clinica_veterinaria.model.Dono;
-import com.clinica_veterinaria.service.DonoService;
+import com.clinica_veterinaria.facade.ClinicaFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class DonoRestController {
 
     @Autowired
-    private DonoService donoService;
+    private ClinicaFacade clinicaFacade;
 
     @PostMapping
-    public Dono salvar(@RequestBody Dono dono) {
-        return donoService.salvarDono(dono);
+    public Dono salvarDono(@RequestBody Dono dono) {
+        return clinicaFacade.salvarDono(dono);
     }
 }

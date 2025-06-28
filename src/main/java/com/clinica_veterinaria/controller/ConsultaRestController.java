@@ -1,7 +1,7 @@
 package com.clinica_veterinaria.controller;
 
 import com.clinica_veterinaria.model.Consulta;
-import com.clinica_veterinaria.service.ConsultaService;
+import com.clinica_veterinaria.facade.ClinicaFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class ConsultaRestController {
 
     @Autowired
-    private ConsultaService consultaService;
+    private ClinicaFacade clinicaFacade;
 
     @PostMapping
-    public Consulta agendarConsulta(@RequestBody Consulta consulta) {
-        return consultaService.agendarConsulta(consulta);
+    public Consulta salvarConsulta(@RequestBody Consulta consulta) {
+        return clinicaFacade.salvarConsulta(consulta);
     }
 }
