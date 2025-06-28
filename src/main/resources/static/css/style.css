@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Sora:wght@300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    outline: 0;
+    text-decoration: none;
+  }
+
+  .body {
+    font-family: 'Sora', sans-serif;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #70000c;
+    margin: 0;
+    padding: 0;
+  }
+.body, html{
+overflow-x: hidden;
+width: 100vw;
+}
+i{
+    color:#f2f2f2;
+}
+.header-icons{
+    display: flex;
+    gap: 14px;
+    margin-right: 20px;
+}
+#iconhover:hover{
+    background-color: #6D000E;
+    border-bottom: 4px solid #E9E3B4;
+    color: #E9E3B4;
+    transition: all 200ms ease-in;
+}
+header{
+    width: 100%;
+}
+.header-content{
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1d9eb3;
+    height: 100px;
+    width: 100%;
+}
+.header-a{
+    margin: 0 230px;
+}
+.header-a a:hover{
+    /* background-color: #8e9094; */
+    border-bottom: 4px solid #e2e1db;
+    color: #e2e1db;
+    transition: all 200ms ease-in;
+}
+.header-button{
+    color: #e2e1db;
+    margin-right: 15px;
+    font-family:'Sora', sans-serif ;
+    font-size: 18px;
+}
+.header-logo{
+    margin-left: 10px;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.header-logo img{
+    height: 100%;
+    width: 100%;
+}
+.header-logo h3 {
+    color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+}
+                /*----------------Capa----------------- */
+.foto-com-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 18px;
+}
+
+.foto-com-texto img {
+    width: 675px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+.foto-com-texto img:hover {
+    transform: scale(1.05);
+  }
+
+.foto-com-texto .titulo {
+    max-width: 500px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color:#1d9eb3;
+    margin-bottom: 20px;
+}
+
+.foto-com-texto .titulo .texto {
+    font-size: 20px;
+    color:#000404;
+    text-align: justify;
+    margin-bottom: 20px
+}
+.foto-com-texto .titulo .subtexto {
+    font-size: 15px;
+    font-weight: bold;
+    color:#000404;
+    text-align: justify;
+    margin-bottom: 20px
+}
+
+.botao {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1d9eb3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+  }
+
+  .botao:hover {
+    background-color: #147a8a;
+  }
+  /* ----------------------------  Footer                */
+
+.site-footer {
+    background-color: #1d9eb3;
+    color: #e2e1db;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.site-footer a {
+    color: #e2e1db;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.container-footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* -------------------- Cadastro */
+.home-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+}
+
+.card-cadastro {
+    width: 400px;
+    height: 500px;
+    background: linear-gradient(135deg, #1d9eb3, #61d0cf);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.card-cadastro a {
+    text-decoration: none;
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.card-cadastro:hover {
+    transform: scale(1.05);
+    background-color: #147a8a;
+}
+
+/* ----------------------- Cadastro Animal*/
+.cadastro-animal {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f0f8fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+
+  .cadastro-animal h2 {
+    text-align: center;
+    color: #1d9eb3;
+    margin-bottom: 20px;
+  }
+
+  .form-animal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-animal label {
+    font-weight: bold;
+  }
+
+  .form-animal input,
+  .form-animal select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-animal button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #1d9eb3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form-animal button:hover {
+    background-color: #147a8a;
+  }
+/* ------------------- Cadastro Dono */
+.cadastro-dono {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f0f8fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+
+  .cadastro-dono h2 {
+    text-align: center;
+    color: #1d9eb3;
+    margin-bottom: 20px;
+  }
+
+  .form-dono {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-dono label {
+    font-weight: bold;
+  }
+
+  .form-dono input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-dono button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #1d9eb3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form-dono button:hover {
+    background-color: #147a8a;
+  }
+
+/* ------------------------ Agendamento */
+.agendamento {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f0f8fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+
+  .agendamento h2 {
+    text-align: center;
+    color: #1d9eb3;
+    margin-bottom: 20px;
+  }
+
+  .form-agendamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-agendamento label {
+    font-weight: bold;
+  }
+
+  .form-agendamento input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-agendamento button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #1d9eb3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form-agendamento button:hover {
+    background-color: #147a8a;
+  }
