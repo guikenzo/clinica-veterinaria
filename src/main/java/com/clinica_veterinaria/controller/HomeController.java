@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ViewController {
+public class HomeController {
     @RequestMapping("/home")
     @ResponseBody
     public ModelAndView home(){
