@@ -1,6 +1,6 @@
-package application;
+package com.clinica_veterinaria;
 
-import application.model.ScannerSingleton;
+import com.clinica_veterinaria.model.*;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class Main {
         } while (opcao != 1 && opcao != 2);
 
         if (opcao == 1) {
-            application.Animal animal = null;
+            Animal animal = null;
             int temDono;
 
             do {
@@ -43,10 +43,10 @@ public class Main {
 
                 if (temDono == 1) {
                     System.out.println("\nCadastro do Dono");
-                    application.Dono dono = new application.Dono(scanner);
-                    animal = application.Animal.criarAnimal(scanner, dono);
+                    Dono dono = new Dono(scanner);
+                    animal = Animal.criarAnimal(scanner, dono);
                 } else if (temDono == 2) {
-                    animal = application.Animal.criarAnimal(scanner, null);
+                    animal = Animal.criarAnimal(scanner, null);
                 } else {
                     System.out.println("Opção inválida! Tente novamente.");
                 }
@@ -54,23 +54,23 @@ public class Main {
             } while (temDono != 1 && temDono != 2);
 
             System.out.println("\nCadastro do Veterinário");
-            application.Veterinario veterinario = new application.Veterinario(scanner);
+            Veterinario veterinario = new Veterinario(scanner);
 
             System.out.println("\nAgendamento de Consulta");
-            application.Consulta consulta = new application.Consulta(scanner, animal, veterinario);
+            Consulta consulta = new Consulta(scanner, animal, veterinario);
             consulta.agendarConsulta();
 
         } else if (opcao == 2) {
             System.out.println("\nCadastro do Veterinário");
-            application.Veterinario veterinario = new application.Veterinario(scanner);
+            Veterinario veterinario = new Veterinario(scanner);
 
             System.out.println("\nCadastro do Animal");
-            application.Animal animal = application.Animal.criarAnimal(scanner, null);
+            Animal animal = Animal.criarAnimal(scanner, null);
 
             System.out.println("\nDiagnóstico");
-            application.Diagnostico diagnostico = new application.Diagnostico(scanner);
+            Diagnostico diagnostico = new Diagnostico(scanner);
 
-            application.Prescricao prescricao = null;
+            Prescricao prescricao = null;
             int precisaMedicamento;
 
             do {
@@ -85,7 +85,7 @@ public class Main {
 
                 if (precisaMedicamento == 1) {
                     System.out.println("\nPrescrição de Medicamento");
-                    prescricao = new application.Prescricao(scanner);
+                    prescricao = new Prescricao(scanner);
                 } else if (precisaMedicamento != 2) {
                     System.out.println("Opção inválida! Tente novamente.");
                 }

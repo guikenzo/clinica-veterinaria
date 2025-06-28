@@ -1,4 +1,4 @@
-package application;
+package com.clinica_veterinaria.model;
 
 public class AnimalFactory {
 

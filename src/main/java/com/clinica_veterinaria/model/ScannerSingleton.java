@@ -1,4 +1,4 @@
-package application.model;
+package com.clinica_veterinaria.model;
 
 import java.util.Scanner;
 
