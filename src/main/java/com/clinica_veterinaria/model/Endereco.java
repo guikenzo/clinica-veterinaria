@@ -1,7 +1,5 @@
 package com.clinica_veterinaria.model;
 
-import java.util.Scanner;
-
 public class Endereco {
 	private String cep;
 	private String logradouro;
@@ -10,7 +8,9 @@ public class Endereco {
 	private String estado;
 	private String pais;
 
-	private Endereco(Builder builder) {
+	public Endereco() {} // Importante: Jackson/Spring usa esse construtor vazio
+
+	public Endereco(Builder builder) {
 		this.cep = builder.cep;
 		this.logradouro = builder.logradouro;
 		this.bairro = builder.bairro;
@@ -19,6 +19,7 @@ public class Endereco {
 		this.pais = builder.pais;
 	}
 
+	// ⬇️ Torne a classe Builder pública e estática
 	public static class Builder {
 		private String cep;
 		private String logradouro = "";
@@ -62,15 +63,14 @@ public class Endereco {
 		}
 	}
 
-	public static Endereco criarEndereco(Scanner scanner) {
-		Builder builder = new Builder().cep(prompt(scanner, "CEP")).bairro(prompt(scanner, "Bairro"))
-				.cidade(prompt(scanner, "Cidade")).estado(prompt(scanner, "Estado")).pais(prompt(scanner, "País")).logradouro(prompt(scanner, "Logradouro"));
-		
-		return builder.build();
-	}
+	// Getters (necessários para serialização)
+	public String getCep() { return cep; }
+	public String getLogradouro() { return logradouro; }
+	public String getBairro() { return bairro; }
+	public String getCidade() { return cidade; }
+	public String getEstado() { return estado; }
+	public String getPais() { return pais; }
 
-	private static String prompt(Scanner scanner, String campo) {
-		System.out.print(campo + ": ");
-		return scanner.nextLine();
-	}
+	// (opcional) Setters, se você quiser atualizar depois
 }
+

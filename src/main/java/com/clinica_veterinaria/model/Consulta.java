@@ -1,22 +1,45 @@
 package com.clinica_veterinaria.model;
 
-import java.util.Scanner;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Consulta implements Atendimento {
-    private Animal animal;
-    private Veterinario veterinario;
+@Document(collection = "consultas")
+public class Consulta {
+
+    @Id
+    private String id;
+    private String nomeAnimal;
+    private String nomeVeterinario;
     private String data;
 
-    public Consulta(Scanner scanner, Animal animal, Veterinario veterinario) {
-        this.animal = animal;
-        this.veterinario = veterinario;
-        System.out.print("Data da consulta (dd/mm/aaaa): ");
-        this.data = scanner.nextLine();
+    public Consulta() {}
+
+    // Getters e setters
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public void agendarConsulta() {
-        System.out.println("\nConsulta agendada para o animal " + animal.nomeAnimal + " com o veterinário " + veterinario + " na data " + data);
+    public String getNomeAnimal() {
+        return nomeAnimal;
+    }
+
+    public void setNomeAnimal(String nomeAnimal) {
+        this.nomeAnimal = nomeAnimal;
+    }
+
+    public String getNomeVeterinario() {
+        return nomeVeterinario;
+    }
+
+    public void setNomeVeterinario(String nomeVeterinario) {
+        this.nomeVeterinario = nomeVeterinario;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }
-
