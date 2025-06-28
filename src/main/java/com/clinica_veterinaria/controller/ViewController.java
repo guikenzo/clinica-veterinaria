@@ -10,8 +10,7 @@ public class ViewController {
     @RequestMapping("/home")
     @ResponseBody
     public ModelAndView home(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
-        return  modelAndView;
+        return new ModelAndView("redirect:/index.html");
+
     }
 }

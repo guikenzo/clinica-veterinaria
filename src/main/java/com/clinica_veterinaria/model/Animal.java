@@ -12,23 +12,43 @@ public class Animal {
     private String nomeAnimal;
     private int idade;
     private String raca;
-    private String tipo; // cachorro ou gato
+    private String tipo;
 
-    // Construtor vazio (obrigatório para o MongoDB e Spring)
     public Animal() {}
 
-    // Getters e Setters
-    public String getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getNomeAnimal() { return nomeAnimal; }
-    public void setNomeAnimal(String nomeAnimal) { this.nomeAnimal = nomeAnimal; }
+    public String getNomeAnimal() {
+        return nomeAnimal;
+    }
 
-    public int getIdade() { return idade; }
-    public void setIdade(int idade) { this.idade = idade; }
+    public void setNomeAnimal(String nomeAnimal) {
+        this.nomeAnimal = nomeAnimal;
+    }
 
-    public String getRaca() { return raca; }
-    public void setRaca(String raca) { this.raca = raca; }
+    public int getIdade() {
+        return idade;
+    }
 
-    public String getTipo() { return tipo; }
-    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
