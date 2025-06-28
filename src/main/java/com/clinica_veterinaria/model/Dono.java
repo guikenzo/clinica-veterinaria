@@ -3,8 +3,6 @@ package com.clinica_veterinaria.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Document(collection = "donos")
 public class Dono {
 
@@ -13,20 +11,16 @@ public class Dono {
 
     private String nome;
     private String telefone;
-    private String cpf;
+    private String email;
+    private Endereco endereco;  // <--- Composição do endereço
 
-    private String cep;
-    private String logradouro;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String pais;
-
-    private List<String> animaisIds;
+    // Animal selecionado (referência ao animal)
+    private String animalId;
 
     public Dono() {}
 
-    // Getters e setters
+    // getters e setters
+
     public String getId() {
         return id;
     }
@@ -34,7 +28,6 @@ public class Dono {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -42,72 +35,28 @@ public class Dono {
     public String getTelefone() {
         return telefone;
     }
-
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public Endereco getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
-    public String getCep() {
-        return cep;
+    public String getAnimalId() {
+        return animalId;
     }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public List<String> getAnimaisIds() {
-        return animaisIds;
-    }
-
-    public void setAnimaisIds(List<String> animaisIds) {
-        this.animaisIds = animaisIds;
+    public void setAnimalId(String animalId) {
+        this.animalId = animalId;
     }
 }
