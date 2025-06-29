@@ -70,7 +70,6 @@
 </footer>
 
 <script>
-    // Função para carregar animais no select
     async function carregarAnimais() {
         try {
             const resposta = await fetch('/api/animais');
@@ -90,7 +89,6 @@
         }
     }
 
-    // Evento para preencher endereço pelo CEP
     document.getElementById('cep').addEventListener('blur', async function () {
         const cep = this.value.replace(/\D/g, '');
         if (cep.length !== 8) {
@@ -120,7 +118,6 @@
         }
     });
 
-    // Envio do formulário
     document.getElementById('form-dono').addEventListener('submit', async function (event) {
         event.preventDefault();
 
@@ -161,7 +158,6 @@
         }
     });
 
-    // Carrega animais ao abrir a página
     window.onload = carregarAnimais;
 </script>
 </body>

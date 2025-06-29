@@ -8,7 +8,7 @@ public class Endereco {
 	private String estado;
 	private String pais;
 
-	public Endereco() {} // Importante: Jackson/Spring usa esse construtor vazio
+	public Endereco() {}
 
 	public Endereco(Builder builder) {
 		this.cep = builder.cep;
@@ -19,7 +19,6 @@ public class Endereco {
 		this.pais = builder.pais;
 	}
 
-	// ⬇️ Torne a classe Builder pública e estática
 	public static class Builder {
 		private String cep;
 		private String logradouro = "";
@@ -63,7 +62,6 @@ public class Endereco {
 		}
 	}
 
-	// Getters (necessários para serialização)
 	public String getCep() { return cep; }
 	public String getLogradouro() { return logradouro; }
 	public String getBairro() { return bairro; }
@@ -71,6 +69,5 @@ public class Endereco {
 	public String getEstado() { return estado; }
 	public String getPais() { return pais; }
 
-	// (opcional) Setters, se você quiser atualizar depois
 }
 

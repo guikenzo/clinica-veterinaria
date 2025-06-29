@@ -12,9 +12,8 @@ public class Dono {
     private String nome;
     private String telefone;
     private String email;
-    private Endereco endereco;  // <--- Composição do endereço
+    private Endereco endereco;
 
-    // Animal selecionado (referência ao animal)
     private String animalId;
 
     public Dono() {}
